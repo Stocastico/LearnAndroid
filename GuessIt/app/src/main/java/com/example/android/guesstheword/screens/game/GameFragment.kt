@@ -21,7 +21,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -88,7 +87,7 @@ class GameFragment : Fragment() {
     private fun buzz(pattern: LongArray) {
         val buzzer : Vibrator = activity?.getSystemService(VIBRATOR_SERVICE) as Vibrator
 
-        buzzer?.let {
+        buzzer.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
             } else {
