@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/title2">
+
+    <fragment
+        android:id="@+id/title2"
+        android:name="org.vicomtech.computervisiondemo.screens.Title"
+        android:label="title_fragment"
+        tools:layout="@layout/title_fragment" >
+        <action
+            android:id="@+id/action_title2_to_edgeDet"
+            app:destination="@id/edgeDet"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/title2" />
+    </fragment>
+    <fragment
+        android:id="@+id/edgeDet"
+        android:name="org.vicomtech.computervisiondemo.screens.EdgeDet"
+        android:label="edge_det_fragment"
+        tools:layout="@layout/edge_det_fragment" />
+</navigation>
