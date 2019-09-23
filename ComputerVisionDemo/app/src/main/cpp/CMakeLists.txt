@@ -24,7 +24,7 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexceptions -std=c++11")
 
 # Path to project: REPLACE WITH YOUR PATH!
-set(PROJECT_PATH /home/VICOMTECH/smasneri/code/kotlin_projects//ComputerVisionDemo)
+set(PROJECT_PATH /home/VICOMTECH/smasneri/code/kotlin_projects/LearnAndroid/ComputerVisionDemo)
 
 # Configure import libs: MAKE SURE TO HAVE A 'cppLibs' DIRECTORY"
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/../cppLibs)

@@ -2,4 +2,5 @@
     <string name="app_name">ComputerVisionDemo</string>
     <string name="title">Welcome to the CV demo app</string>
     <string name="edge_det_button_cont_desc">Edge detection</string>
+    <string name="edge_button_text">Canny Edge Detection</string>
 </resources>

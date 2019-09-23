@@ -1,15 +1,35 @@
 package org.vicomtech.computervisiondemo
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
-import org.opencv.android.OpenCVLoader
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
 
+    private val REQUEST_CAMERA_PERMISSION = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+        if (supportActionBar != null) {
+            supportActionBar?.hide()
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
+
+        }
+
+
         setContentView(R.layout.activity_main)
 
         // Example of a call to a native method
@@ -26,9 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         // Used to load the 'native-lib' library on application startup.
         init {
-            System.loadLibrary("native-lib")
-
-            OpenCVLoader.initDebug()
+            //System.loadLibrary("native-lib")
+            //OpenCVLoader.initDebug()
         }
     }
 }

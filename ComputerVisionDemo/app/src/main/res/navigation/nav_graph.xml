@@ -3,25 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/title2">
+    app:startDestination="@id/titleFragment">
 
     <fragment
-        android:id="@+id/title2"
-        android:name="org.vicomtech.computervisiondemo.screens.Title"
-        android:label="title_fragment"
-        tools:layout="@layout/title_fragment" >
+        android:id="@+id/titleFragment"
+        android:name="org.vicomtech.computervisiondemo.screens.TitleFragment"
+        android:label="TitleFragment" >
         <action
-            android:id="@+id/action_title2_to_edgeDet"
+            android:id="@+id/action_titleFragment_to_edgeDet"
             app:destination="@id/edgeDet"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/title2" />
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/edgeDet"
-        android:name="org.vicomtech.computervisiondemo.screens.EdgeDet"
+        android:name="org.vicomtech.computervisiondemo.screens.EdgeDetFragment"
         android:label="edge_det_fragment"
         tools:layout="@layout/edge_det_fragment" />
+
 </navigation>
