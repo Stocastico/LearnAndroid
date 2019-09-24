@@ -10,7 +10,7 @@ import org.opencv.imgproc.Imgproc
 import org.vicomtech.computervisiondemo.R
 import timber.log.Timber
 
-class EdgeDetFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
+class EdgeDetNativeFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
 
     private var imgRGBA: Mat  ?= null
     private var imgGray: Mat  ?= null
@@ -90,11 +90,13 @@ class EdgeDetFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
     }
 
     override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
-        Timber.i("onCameraFrame called")
-        imgRGBA = inputFrame.rgba()
-        Imgproc.cvtColor(imgRGBA, imgGray, Imgproc.COLOR_RGBA2GRAY)
-        Imgproc.Canny(imgGray, imgEdge, 50.0, 100.0)
-        return imgEdge!!
+        val result = Mat()
+
+        edgeDetectionFromJNI(inputFrame.gray().nativeObjAddr, result.nativeObjAddr)
+
+        return result
     }
+
+    private external fun edgeDetectionFromJNI(input: Long, output: Long)
 
 }

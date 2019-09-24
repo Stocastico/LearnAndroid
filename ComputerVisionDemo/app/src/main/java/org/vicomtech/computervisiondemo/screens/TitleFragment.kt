@@ -36,6 +36,13 @@ class TitleFragment : Fragment() {
             }
         })
 
+        titleViewModel.navigateToNativeEdgeDetection.observe(this, Observer {
+            if (it == true) {
+                this.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToEdgeDetNativeFragment())
+                titleViewModel.doneNavigatingToNativeEdge()
+            }
+        })
+
         val binding: TitleFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.title_fragment, container, false
         )

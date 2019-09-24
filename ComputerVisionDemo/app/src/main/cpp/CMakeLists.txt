@@ -33,7 +33,7 @@ set(LIB_DIR ${CMAKE_SOURCE_DIR}/../cppLibs)
 # -- OPENCV
 # ------------------------------------------------------------------
 # Path to OpenCV: REPLACE WITH YOUR PATH!
-set(OPENCV_PATH your-path-to/opencv-4.0.1-android-sdk)
+set(OPENCV_PATH /home/VICOMTECH/smasneri/local/OpenCV-android-sdk)
 
 # Make directories for Opencv
 file(MAKE_DIRECTORY ${LIB_DIR}/opencv)
