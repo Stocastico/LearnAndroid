@@ -43,6 +43,13 @@ class TitleFragment : Fragment() {
             }
         })
 
+        titleViewModel.navigateToStylization.observe(this, Observer {
+            if (it == true) {
+                this.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToStylizationFragment())
+                titleViewModel.doneNavigatingToStylization()
+            }
+        })
+
         val binding: TitleFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.title_fragment, container, false
         )

@@ -26,6 +26,14 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/titleFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_stylizationFragment"
+            app:destination="@id/stylizationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
 
     <fragment
@@ -37,5 +45,10 @@
         android:id="@+id/edgeDetNativeFragment"
         android:name="org.vicomtech.computervisiondemo.screens.EdgeDetNativeFragment"
         android:label="EdgeDetNativeFragment" />
+    <fragment
+        android:id="@+id/stylizationFragment"
+        android:name="org.vicomtech.computervisiondemo.screens.StylizationFragment"
+        android:label="fragment_stylization"
+        tools:layout="@layout/stylization_fragment" />
 
 </navigation>

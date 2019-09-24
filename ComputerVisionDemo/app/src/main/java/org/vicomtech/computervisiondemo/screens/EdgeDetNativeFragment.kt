@@ -6,15 +6,12 @@ import androidx.fragment.app.Fragment
 import org.opencv.android.*
 import org.opencv.core.CvType
 import org.opencv.core.Mat
-import org.opencv.imgproc.Imgproc
 import org.vicomtech.computervisiondemo.R
 import timber.log.Timber
 
 class EdgeDetNativeFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
 
     private var imgRGBA: Mat  ?= null
-    private var imgGray: Mat  ?= null
-    private var imgEdge: Mat  ?= null
 
     private var camView : CameraBridgeViewBase? = null
 
@@ -81,8 +78,6 @@ class EdgeDetNativeFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListe
     override fun onCameraViewStarted(width: Int, height: Int) {
         Timber.i("onCameraViewStarted called")
         imgRGBA = Mat(height, width, CvType.CV_8UC4)
-        imgGray = Mat(height, width, CvType.CV_8UC1)
-        imgEdge = Mat(height, width, CvType.CV_8UC1)
     }
 
     override fun onCameraViewStopped() {

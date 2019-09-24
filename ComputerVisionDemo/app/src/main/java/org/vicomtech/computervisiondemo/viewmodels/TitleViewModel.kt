@@ -15,6 +15,10 @@ class TitleViewModel : ViewModel() {
     val navigateToNativeEdgeDetection: LiveData<Boolean>
         get() = _navigateToNativeEdgeDetection
 
+    private val _navigateToStylization = MutableLiveData<Boolean>()
+    val navigateToStylization: LiveData<Boolean>
+        get() = _navigateToStylization
+
     fun onEdgeButtonClicked() {
         Timber.i("Edge button clicked!")
         _navigateToEdgeDetection.value = true
@@ -25,6 +29,11 @@ class TitleViewModel : ViewModel() {
         _navigateToNativeEdgeDetection.value = true
     }
 
+    fun onStylizationButtonClicked() {
+        Timber.i("Stylization button clicked")
+        _navigateToStylization.value = true
+    }
+
     fun doneNavigatingToEdge() {
         _navigateToEdgeDetection.value = false
     }
@@ -33,10 +42,15 @@ class TitleViewModel : ViewModel() {
         _navigateToNativeEdgeDetection.value = false
     }
 
+    fun doneNavigatingToStylization() {
+        _navigateToStylization.value = false
+    }
+
     init {
         Timber.i("TitleViewModel::init called")
         _navigateToEdgeDetection.value = false
         _navigateToNativeEdgeDetection.value = false
+        _navigateToStylization.value = false
     }
 
 

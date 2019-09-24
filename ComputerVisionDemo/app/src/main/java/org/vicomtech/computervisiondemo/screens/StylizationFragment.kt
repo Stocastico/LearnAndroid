@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import org.opencv.android.*
-import org.opencv.core.Core
 import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.imgproc.Imgproc
+import org.opencv.photo.Photo
 import org.vicomtech.computervisiondemo.R
 import timber.log.Timber
 
-class EdgeDetFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
+class StylizationFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
 
     private var imgRGBA: Mat  ?= null
-    private var imgGray: Mat  ?= null
-    private var imgEdge: Mat  ?= null
+    private var imgBGR: Mat  ?= null
+    private var imgStyle: Mat ?= null
 
     private var camView : CameraBridgeViewBase? = null
 
@@ -82,8 +82,8 @@ class EdgeDetFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
     override fun onCameraViewStarted(width: Int, height: Int) {
         Timber.i("onCameraViewStarted called")
         imgRGBA = Mat(height, width, CvType.CV_8UC4)
-        imgGray = Mat(height, width, CvType.CV_8UC1)
-        imgEdge = Mat(height, width, CvType.CV_8UC1)
+        imgBGR = Mat(height, width, CvType.CV_8UC3)
+        imgStyle = Mat(height, width, CvType.CV_8UC3)
     }
 
     override fun onCameraViewStopped() {
@@ -91,13 +91,18 @@ class EdgeDetFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
     }
 
     override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
-        //Timber.i("onCameraFrame called")
+        val result = Mat()
 
-        imgRGBA = inputFrame.rgba()
-        Core.rotate(imgRGBA, imgRGBA, Core.ROTATE_90_CLOCKWISE)
-        Imgproc.cvtColor(imgRGBA, imgGray, Imgproc.COLOR_RGBA2GRAY)
-        Imgproc.Canny(imgGray, imgEdge, 50.0, 100.0)
-        return imgEdge!!
+//        imgRGBA = inputFrame.rgba()
+//        Imgproc.cvtColor(imgRGBA, imgBGR, Imgproc.COLOR_RGBA2BGR)
+//        Photo.stylization(imgBGR, imgStyle)
+//        return imgStyle!!
+
+        stylizationFromJNI(inputFrame.rgba().nativeObjAddr, result.nativeObjAddr)
+
+        return result
     }
+
+    private external fun stylizationFromJNI(input: Long, output: Long)
 
 }
