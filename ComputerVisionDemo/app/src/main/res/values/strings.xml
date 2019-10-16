@@ -8,4 +8,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="native_edge_button_text">Native Canny Edge Detection</string>
     <string name="stylization_button_text">Image Stylization</string>
+    <string name="capture_button_content_description">Take a picture</string>
+    <string name="posenet_button_text">Pose detection</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 </resources>

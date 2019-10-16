@@ -34,6 +34,14 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/titleFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_posenetFragment"
+            app:destination="@id/posenetFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
 
     <fragment
@@ -50,5 +58,10 @@
         android:name="org.vicomtech.computervisiondemo.screens.StylizationFragment"
         android:label="fragment_stylization"
         tools:layout="@layout/stylization_fragment" />
+    <fragment
+        android:id="@+id/posenetFragment"
+        android:name="org.vicomtech.computervisiondemo.screens.PosenetFragment"
+        android:label="fragment_posenet"
+        tools:layout="@layout/posenet_fragment" />
 
 </navigation>

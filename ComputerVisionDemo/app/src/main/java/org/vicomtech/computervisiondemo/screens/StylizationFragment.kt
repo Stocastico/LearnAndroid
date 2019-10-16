@@ -6,14 +6,12 @@ import androidx.fragment.app.Fragment
 import org.opencv.android.*
 import org.opencv.core.CvType
 import org.opencv.core.Mat
-import org.opencv.imgproc.Imgproc
-import org.opencv.photo.Photo
 import org.vicomtech.computervisiondemo.R
 import timber.log.Timber
 
 class StylizationFragment : Fragment(), CameraBridgeViewBase.CvCameraViewListener2 {
 
-    private var imgRGBA: Mat  ?= null
+    private var imgRGBA: Mat ?= null
     private var imgBGR: Mat  ?= null
     private var imgStyle: Mat ?= null
 

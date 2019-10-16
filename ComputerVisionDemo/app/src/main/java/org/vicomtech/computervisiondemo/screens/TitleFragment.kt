@@ -50,6 +50,13 @@ class TitleFragment : Fragment() {
             }
         })
 
+        titleViewModel.navigateToPosenet.observe(this, Observer {
+            if (it == true) {
+                this.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToPosenetFragment())
+                titleViewModel.doneNavigatingToPosenet()
+            }
+        })
+
         val binding: TitleFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.title_fragment, container, false
         )

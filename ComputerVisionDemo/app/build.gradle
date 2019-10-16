@@ -48,6 +48,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    aaptOptions {
+        noCompress "tflite"
+    }
+
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
@@ -101,4 +107,8 @@ dependencies {
 
     // LOGGING
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //TENSORFLOW
+    implementation 'org.tensorflow:tensorflow-lite:1.14.0'
+    implementation project(path: ':posenet')
 }

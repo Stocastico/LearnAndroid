@@ -19,6 +19,10 @@ class TitleViewModel : ViewModel() {
     val navigateToStylization: LiveData<Boolean>
         get() = _navigateToStylization
 
+    private val _navigateToPosenet = MutableLiveData<Boolean>()
+    val navigateToPosenet: LiveData<Boolean>
+        get() = _navigateToPosenet
+
     fun onEdgeButtonClicked() {
         Timber.i("Edge button clicked!")
         _navigateToEdgeDetection.value = true
@@ -34,6 +38,11 @@ class TitleViewModel : ViewModel() {
         _navigateToStylization.value = true
     }
 
+    fun onPosenetButtonClicked() {
+        Timber.i("Stylization button clicked")
+        _navigateToPosenet.value = true
+    }
+
     fun doneNavigatingToEdge() {
         _navigateToEdgeDetection.value = false
     }
@@ -44,6 +53,10 @@ class TitleViewModel : ViewModel() {
 
     fun doneNavigatingToStylization() {
         _navigateToStylization.value = false
+    }
+
+    fun doneNavigatingToPosenet() {
+        _navigateToPosenet.value = false
     }
 
     init {
