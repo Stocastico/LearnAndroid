@@ -18,7 +18,7 @@ extern "C" {
         cv::rotate(output, output, cv::ROTATE_90_CLOCKWISE);
     }
 
-    void JNICALL Java_org_vicomtech_computervisiondemo_screens_StylizationFragment_stylizationFromJNI(JNIEnv* env,
+    void JNICALL Java_org_vicomtech_computervisiondemo_screens_StylizationResultFragment_stylizationFromJNI(JNIEnv* env,
             jobject instance, jlong inputAddr, jlong outputAddr)
     {
         cv::Mat &input = *(cv::Mat *) inputAddr;

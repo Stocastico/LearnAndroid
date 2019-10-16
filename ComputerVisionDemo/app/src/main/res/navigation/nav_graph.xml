@@ -57,11 +57,30 @@
         android:id="@+id/stylizationFragment"
         android:name="org.vicomtech.computervisiondemo.screens.StylizationFragment"
         android:label="fragment_stylization"
-        tools:layout="@layout/stylization_fragment" />
+        tools:layout="@layout/stylization_fragment" >
+        <action
+            android:id="@+id/action_stylizationFragment_to_stylizationResultFragment"
+            app:destination="@id/stylizationResultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/stylizationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/posenetFragment"
         android:name="org.vicomtech.computervisiondemo.screens.PosenetFragment"
         android:label="fragment_posenet"
         tools:layout="@layout/posenet_fragment" />
+    <fragment
+        android:id="@+id/stylizationResultFragment"
+        android:name="org.vicomtech.computervisiondemo.screens.StylizationResultFragment"
+        android:label="stylization_result_fragment"
+        tools:layout="@layout/stylization_result_fragment" >
+        <argument
+            android:name="imgPath"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 
 </navigation>

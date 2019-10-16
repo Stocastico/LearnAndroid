@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <org.opencv.android.JavaCameraView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/main_surface" />
+    <!-- Data to make available to the XML via data binding. In this case,
+     the whole ViewModel, so that we can access the LiveData,
+     click handlers, and state variables. -->
+    <data>
+        <variable
+            name="stylizationViewModel"
+            type="org.vicomtech.computervisiondemo.viewmodels.StylizationViewModel"/>
+    </data>
 
-    <ImageButton
-        android:id="@+id/captureButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/margin"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="@dimen/margin"
-        android:background="@color/transparent"
-        android:contentDescription="@string/capture_button_content_description"
-        android:src="@mipmap/ic_take_photo" />
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".MainActivity"
+        android:background="@android:color/black">
 
-</RelativeLayout>
+        <io.fotoapparat.view.CameraView
+            android:id="@+id/main_surface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/fab_camera"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:src="@mipmap/ic_take_photo"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/capture_button_content_description"
+            android:onClick="@{() ->  stylizationViewModel.onCameraButtonClicked()}"
+            />
+
+    </RelativeLayout>
+</layout>

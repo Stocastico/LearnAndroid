@@ -111,4 +111,7 @@ dependencies {
     //TENSORFLOW
     implementation 'org.tensorflow:tensorflow-lite:1.14.0'
     implementation project(path: ':posenet')
+
+    // FOTO APPARAT
+    implementation 'io.fotoapparat:fotoapparat:2.6.1'
 }
